@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Register Employee</title>
+</h:head>
+<h:form style="margin: 0 auto;">
+    <p:growl id="messages"></p:growl>
+    <p:panelGrid styleClass="panelGridCenter" columns="3">
+        <p:outputLabel value="Id :"></p:outputLabel>
+        <p:inputText value="#{employeeBean.id}"></p:inputText>
+        <p:commandButton value="Find" action="#{employeeBean.findEmp}" update="name messages"></p:commandButton>
+    </p:panelGrid>
+    <br/>
+    <p:panelGrid columns="2" id="name">
+        <p:outputLabel value="ID "></p:outputLabel>
+        <p:outputLabel value="#{employeeBean.employee.employeeId}"></p:outputLabel>
+        <p:outputLabel value="Name "></p:outputLabel>
+        <p:outputLabel value="#{employeeBean.employee.employeeName}"></p:outputLabel>
+        <p:outputLabel value="Hire Date"></p:outputLabel>
+        <p:outputLabel value="#{employeeBean.employee.employeeHireDate}"></p:outputLabel>
+        <p:outputLabel value="Salary"></p:outputLabel>
+        <p:outputLabel value="#{employeeBean.employee.employeeSalary}"></p:outputLabel>
+    </p:panelGrid>
+</h:form>
+</html>

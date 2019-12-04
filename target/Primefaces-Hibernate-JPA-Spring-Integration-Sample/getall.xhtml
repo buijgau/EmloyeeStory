@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+    <title>Get all</title>
+</h:head>
+<h:form>
+<p:dataTable style="margin: 0 auto;" id="reload" var="employee" value="#{employeeBean.all}">
+    <p:column headerText="Id">
+        <h:outputText value="#{employee.employeeId}" />
+    </p:column>
+    <p:column headerText="Name">
+        <h:outputText value="#{employee.employeeName}" />
+    </p:column>
+    <p:column headerText="HireDate">
+        <h:outputText value="#{employee.employeeHireDate}" />
+    </p:column>
+    <p:column headerText="Salary">
+        <h:outputText value="#{employee.employeeSalary}" />
+    </p:column>
+    <p:column>
+        <p:commandButton value="Delete" styleClass="ui-priority-primary"  actionListener="#{employeeBean.remove(employee.employeeId)}" update="reload">
+        </p:commandButton>
+    </p:column>
+</p:dataTable>
+</h:form>
+<p:separator />
+<p:link outcome="index.xhtml" value="Create Employee">
+</p:link>
+<p:spacer width="102" height="10" />
+<p:link outcome="find.xhtml" value="Find Emp by ID">
+</p:link>
+
+</html>
